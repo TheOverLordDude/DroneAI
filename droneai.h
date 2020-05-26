@@ -1,7 +1,10 @@
 struct droneObject
 {
+    bool headHunting;
     bool isCrash;
+    int friendlyfireDisallowed = 0.5;
     int checkSensorForCrash;
+    int heads = 0;
 	float checkSensor(char sensorVal)
 	{
 		checkSensorForCrash = sensorVal;
@@ -18,6 +21,19 @@ struct droneObject
 		{
 			return false;
 		}
+    }
+    void headHunt(char target)
+    {
+	    if(target == self)
+	    {
+		    break;
+	    }
+	    fire(target);
+    }
+    void fire(char target)
+    {
+	    heads++;
+	    return heads;
     }
 };
 
